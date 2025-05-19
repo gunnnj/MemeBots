@@ -14,7 +14,7 @@ public class SelectBossUI : BaseScreenUI
         btnContinue.interactable = false;
         btnContinue.onClick.AddListener(Continue);
         btnChangeAll.onClick.AddListener(ChangeAll);
-        await Task.Delay(2000);
+        await Task.Delay(3000);
         btnContinue.interactable = true;
     }
 

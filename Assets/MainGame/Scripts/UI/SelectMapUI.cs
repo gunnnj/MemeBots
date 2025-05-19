@@ -9,10 +9,15 @@ public class SelectMapUI : BaseScreenUI
     void Start()
     {
         btnPlay.onClick.AddListener(Play);
+        btnPlay.interactable = false;
     }
 
     private void Play()
     {
-        ManagerUI.Instance.Play();
+        // ManagerUI.Instance.Play();
+        ManagerUI.Instance.ShowUI(ManagerUI.Screen.SelectItemSpUI);
+    }
+    public void ActiveBtnPlay(){
+        btnPlay.interactable = true;
     }
 }

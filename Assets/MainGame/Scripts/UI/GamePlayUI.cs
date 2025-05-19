@@ -14,15 +14,18 @@ public class GamePlayUI : BaseScreenUI
     public Action onHand;
     public Button btnJump;
     public Button btnHand;
+    public RectTransform[] arrows;
+    
+    private LoseUI loseUI;
+    private Coroutine coroutine;
+    private int time = 0;
+
     //event
     public delegate void DisplayHand(bool value);
     public static DisplayHand displayHand;
     public delegate void LoseGame();
     public static LoseGame loseGame;
-
-    
-    private Coroutine coroutine;
-    private int time = 0;
+    //
 
     void OnEnable()
     {
@@ -42,6 +45,8 @@ public class GamePlayUI : BaseScreenUI
         btnHand.onClick.AddListener(Handle);
         
         coroutine = StartCoroutine(CountingTime());
+        
+        loseUI = ManagerUI.Instance.GetLoseUI().GetComponent<LoseUI>();
 
     }
 
@@ -51,7 +56,7 @@ public class GamePlayUI : BaseScreenUI
         Color color = loseScreen.color;
         color.a = Mathf.Clamp01(0.6f);
         StopCoroutine(coroutine); 
-        ManagerUI.Instance.SetTime(time);
+        loseUI.SetTime(time);
         await Task.Delay(1000);
         loseScreen.color = color;
         PopUpHand(false);
@@ -84,6 +89,9 @@ public class GamePlayUI : BaseScreenUI
             yield return new WaitForSeconds(1f);
             time++;
         }
+    }
+    public void UpdateIndicator(int id, float angle){
+        arrows[id].rotation = Quaternion.Euler(0f,0f,angle);
     }
 
 }

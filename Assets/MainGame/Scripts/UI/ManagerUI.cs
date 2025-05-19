@@ -8,7 +8,6 @@ public class ManagerUI : MonoBehaviour
     [SerializeField] List<BaseScreenUI> listScreen;
     private List<GameObject> listScreenGo = new List<GameObject>();
     private GameObject currentUI;
-    private int Time;
     public static ManagerUI Instance;
 
     void Awake()
@@ -26,17 +25,14 @@ public class ManagerUI : MonoBehaviour
         }
         ShowUI(Screen.SelectBossUI);
     }
-    public void SetTime(int time){
-        Time = time;
-    }
-    public int GetTime(){
-        return Time;
-    }
 
     public void HideAllUI(){
         foreach(var item in listScreenGo){
             item.SetActive(false);
         }
+    }
+    public GameObject GetLoseUI(){
+        return listScreenGo[0];
     }
 
     public void ChangeBoss()
@@ -66,6 +62,8 @@ public class ManagerUI : MonoBehaviour
         LoseUI,
         SelectBossUI,
         SelectMapUI,
+        SelectItemSpUI,
         GamePlayUI
+        
     }
 }

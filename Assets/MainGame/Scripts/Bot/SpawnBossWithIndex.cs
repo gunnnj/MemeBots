@@ -7,6 +7,13 @@ public class SpawnBossWithIndex : MonoBehaviour
     private int[] listIdBoss;
     void Start()
     {
-        // listIdBoss = new ;
+        listIdBoss = GameManager.Instance.GetIndexBoss();
+        // Spawn();
+
+    }
+    public void Spawn(){
+        foreach(var item in listIdBoss){
+            listBoss[item].SetActive(true);
+        }
     }
 }

@@ -18,11 +18,11 @@ public class LoseUI : BaseScreenUI
         
     }
 
-    private async void DisplayTime()
+    public void SetTime(int time){
+        txtTime.text = time+" s";
+    }
+    private void DisplayTime()
     {
-        txtTime.text = "";
-        await Task.Delay(100);
-        txtTime.text = ManagerUI.Instance.GetTime()+" s";
     }
 
     private void Home()

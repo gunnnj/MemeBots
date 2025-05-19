@@ -23,7 +23,6 @@ public class SnapToItem : MonoBehaviour
     void Update()
     {
         currentItem = Mathf.RoundToInt(0 - contentPanel.localPosition.x / (sampleListItem.rect.width + HLG.spacing)); 
-        // Debug.Log(currentItem); 
         if (scrollRect.velocity.magnitude < 200 && !isSnapped) 
         { 
             scrollRect.velocity = Vector2.zero; 
@@ -33,9 +32,6 @@ public class SnapToItem : MonoBehaviour
                 contentPanel.localPosition.y, 
                 contentPanel.localPosition.z); 
             
-            // if (contentPanel.localPosition.x == 0 - (currentItem * (sampleListItem.rect.width + HLG.spacing))) {
-            //     isSnapped = true; 
-            // }
             if (Mathf.Abs(contentPanel.localPosition.x - (0 - (currentItem * (sampleListItem.rect.width + HLG.spacing)))) < 0.01f)
             {
                 isSnapped = true; 
@@ -50,11 +46,11 @@ public class SnapToItem : MonoBehaviour
     }
     public void SnapToNearestItem()
     {
-        isSnapped = false; // Reset trạng thái snap
-        scrollRect.velocity = Vector2.zero; // Đặt vận tốc về 0
-        snapSpeed = 0; // Reset tốc độ snap
-        // Logic snapping sẽ được xử lý trong Update, vì isSnapped = false
+        isSnapped = false; 
+        scrollRect.velocity = Vector2.zero; 
+        snapSpeed = 0; 
         Debug.Log(currentItem); 
+        GetComponentInParent<SelectMapUI>().ActiveBtnPlay();
     }
 
 }
