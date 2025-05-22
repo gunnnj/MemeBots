@@ -9,6 +9,7 @@ public class ManagerUI : MonoBehaviour
     private List<GameObject> listScreenGo = new List<GameObject>();
     private GameObject currentUI;
     public static ManagerUI Instance;
+    public int index;
 
     void Awake()
     {
@@ -48,6 +49,9 @@ public class ManagerUI : MonoBehaviour
     public void Play()
     {
         GameManager.Instance.LoadScenePlay();
+    }
+    public void PlayScene(){
+        GameManager.Instance.LoadScene(index);
     }
 
     public void LoadHome()

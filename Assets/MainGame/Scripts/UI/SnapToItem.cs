@@ -50,6 +50,7 @@ public class SnapToItem : MonoBehaviour
         scrollRect.velocity = Vector2.zero; 
         snapSpeed = 0; 
         Debug.Log(currentItem); 
+        ManagerUI.Instance.index = currentItem+1;
         GetComponentInParent<SelectMapUI>().ActiveBtnPlay();
     }
 

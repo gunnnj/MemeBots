@@ -39,7 +39,6 @@ public class PlayerInteration : MonoBehaviour, IInteractable
     void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Interactable")){
-            Debug.Log("Hide hand");
             GamePlayUI.displayHand?.Invoke(false);
             isTrigger = false;
             isInteract = false;

@@ -27,9 +27,6 @@ public class BaseMove : MonoBehaviour
             agent.SetDestination(hit.transform.position);
         }
         else{
-            // if(coroutine==null){
-            //     coroutine = StartCoroutine(SetDestination());
-            // }
             targetChangeTimer -= Time.deltaTime;
 
             if (targetChangeTimer <= 0f)

@@ -22,7 +22,7 @@ public class BotDog : BaseMove
         base.Update();
     }
 
-    async void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player")){
             Debug.Log("Attack Player");

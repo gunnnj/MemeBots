@@ -17,7 +17,10 @@ public class SelectItemSpUI : BaseScreenUI
 
     private void Miss()
     {
+        Debug.Log("Choi map:"+ManagerUI.Instance.index);
         ManagerUI.Instance.Play();
+        
+        // ManagerUI.Instance.PlayScene();
     }
 
     private void NextBot()

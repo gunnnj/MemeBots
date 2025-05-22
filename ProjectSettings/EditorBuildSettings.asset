@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainGame/Scenes/GamePlay.unity
     guid: 0daf93a6349783d43817904436d4847f
+  - enabled: 1
+    path: Assets/MainGame/Scenes/GamePlayMap2.unity
+    guid: b225f3ae91f07fd4c8dbf7ec8d43f7b8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

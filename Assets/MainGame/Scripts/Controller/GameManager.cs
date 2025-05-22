@@ -26,11 +26,16 @@ public class GameManager : MonoBehaviour
         return indexBoss;
     }
     public async void LoadScenePlay(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         await Task.Delay(100);
         ManagerUI.Instance.HideAllUI();
     }
     public void LoadHome(){
         SceneManager.LoadScene(0);
+    }
+    public async void LoadScene(int index){
+        SceneManager.LoadScene(index);
+        await Task.Delay(100);
+        ManagerUI.Instance.HideAllUI();
     }
 }

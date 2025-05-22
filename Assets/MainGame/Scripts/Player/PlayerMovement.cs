@@ -4,7 +4,7 @@ using NUnit.Framework.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPlayerRun
 {
     [SerializeField] VariableJoystick joystick;
     [SerializeField] GamePlayUI gamePlayUI;
@@ -187,7 +187,21 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
-    public void PlayerDead(Vector3 positionBoss){
+    // public override void PlayerDead(Vector3 positionBoss){
+    //     GamePlayUI.loseGame?.Invoke();
+    //     //Look Boss Attack
+    //     isStop = true;
+    //     animator?.SetBool(animRun,false);
+    //     Vector3 dir  = (positionBoss-transform.position).normalized;
+    //     dir.y = 0;
+    //     Quaternion quaternion = Quaternion.LookRotation(dir);
+    //     transform.rotation = quaternion;
+    //     Debug.Log("Lose");
+
+    // }
+
+    public void PlayerDead(Vector3 positionBoss)
+    {
         GamePlayUI.loseGame?.Invoke();
         //Look Boss Attack
         isStop = true;
@@ -197,6 +211,5 @@ public class PlayerMovement : MonoBehaviour
         Quaternion quaternion = Quaternion.LookRotation(dir);
         transform.rotation = quaternion;
         Debug.Log("Lose");
-
     }
 }

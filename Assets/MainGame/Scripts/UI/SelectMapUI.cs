@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SelectMapUI : BaseScreenUI
 {
     [SerializeField] Button btnPlay;
+    public int indexMap;
 
     void Start()
     {
